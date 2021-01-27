@@ -19,10 +19,6 @@
     	margin-top: 50px; 
     }
 
-    .leaflet-marker-icon.stashes {
-    	visibility: visible;
-    }
-
   </style>
 
   <script type="text/javascript">
@@ -42,8 +38,8 @@
   	}
 
 
-  	function toggleStashes() {
-  		var x = document.getElementsByClassName('stashes');
+  	function toggleMarkers(className) {
+  		var x = document.getElementsByClassName(className);
 
   		for(i = 0; i < x.length; i++) {
   			if(window.getComputedStyle(x[i]).visibility === 'visible') {
@@ -62,7 +58,8 @@
 
 	<!--YOUR PATHETIC HTML GOES HERE-->
   <div id="map"></div>
-  <button onclick="toggleStashes()">Toogle Stashes</button>
+  <button onclick="toggleMarkers('stash')">Toogle Stashes</button>
+  <button onclick="toggleMarkers('boss')">Toogle Bosses</button>
 
   <script>
   downloadUrl('http://localhost:8080/ProjektRWA/markers.php', function(data) {
@@ -78,7 +75,7 @@
 
   		var stashIcon = L.icon({
   			iconUrl: icon,
-  			iconSize: [30, 30],
+  			iconSize: [35, 35],
   		});
 
   		var marker = L.marker([x_coord, y_coord], {icon: stashIcon});
@@ -92,8 +89,7 @@
   			.setContent('<center><img src = "ShorelineLocations/' + id + '.png" height = "250px" width = "350px" alt = "STASH ' + id + '"/><br><b><h2>' + description + '</h2></b></center>');
 
   		marker.bindPopup(popup);
-  		//$(marker._icon).addClass('stashes');
-  		L.DomUtil.addClass(marker._icon, 'stashes');
+  		L.DomUtil.addClass(marker._icon, type);
 
   		map.on('popupclose', function() {
   			map.panTo(map.getCenter());
