@@ -19,6 +19,10 @@
     	margin-top: 50px; 
     }
 
+    .leaflet-marker-icon.stashes {
+    	visibility: visible;
+    }
+
   </style>
 
   <script type="text/javascript">
@@ -36,12 +40,29 @@
   		request.open('GET', url, true);
   		request.send(null);
   	}
+
+
+  	function toggleStashes() {
+  		var x = document.getElementsByClassName('stashes');
+
+  		for(i = 0; i < x.length; i++) {
+  			if(window.getComputedStyle(x[i]).visibility === 'visible') {
+  				x[i].style.visibility = 'hidden';
+  				//alert("now hidden");
+  			} else {
+  				x[i].style.visibility = 'visible';
+  				//alert("visible");
+  			}
+  		}
+  	}
   </script>
 
 </head>
 <body>
 
+	<!--YOUR PATHETIC HTML GOES HERE-->
   <div id="map"></div>
+  <button onclick="toggleStashes()">Toogle Stashes</button>
 
   <script>
   downloadUrl('http://localhost:8080/ProjektRWA/markers.php', function(data) {
@@ -52,7 +73,7 @@
   		var x_coord = markerElem.getAttribute('x_coord');
   		var y_coord = markerElem.getAttribute('y_coord');
   		var icon = markerElem.getAttribute('icon');
-  		var image = markerElem.getAttribute('image');
+  		var type = markerElem.getAttribute('type');
   		var description = markerElem.getAttribute('description');
 
   		var stashIcon = L.icon({
@@ -71,6 +92,8 @@
   			.setContent('<center><img src = "ShorelineLocations/' + id + '.png" height = "250px" width = "350px" alt = "STASH ' + id + '"/><br><b><h2>' + description + '</h2></b></center>');
 
   		marker.bindPopup(popup);
+  		//$(marker._icon).addClass('stashes');
+  		L.DomUtil.addClass(marker._icon, 'stashes');
 
   		map.on('popupclose', function() {
   			map.panTo(map.getCenter());
@@ -82,8 +105,8 @@
   // initialize the map
   var map = L.map('map').setView([5, 5], 2);
 
- /* var southWest = map.unproject([1920, 0], map.getMaxZoom());
-  var northEast = map.unproject([0, 1080], map.getMaxZoom());*/
+  var southWest = map.unproject([1920, 0], map.getMaxZoom());
+  var northEast = map.unproject([0, 1080], map.getMaxZoom());
 
   // load a tile layer
   L.tileLayer('Tiles\\map_{x}_{y}.jpg',
@@ -112,10 +135,6 @@
 	}
 
 	map.on('click', onMapClick);
-
-
-
-
 	//marker.on('click', markerClick)
   </script>
 </body>

@@ -46,7 +46,7 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo 'x_coord="' . $row['x_coord'] . '" ';
   echo 'y_coord="' . $row['y_coord'] . '" ';
   echo 'icon="' . parseToXML($row['icon']) . '" ';
-  echo 'image="' . parseToXML($row['image']) . '" ';
+  echo 'type="' . parseToXML($row['type']) . '" ';
   echo 'description="' . parseToXML($row['description']) . '" ';
   //echo 'type="' . $row['type'] . '" ';
   echo '/>';
@@ -55,7 +55,4 @@ while ($row = @mysqli_fetch_assoc($result)){
 
 // End XML file
 echo '</markers>';
-
-
-
 ?>
