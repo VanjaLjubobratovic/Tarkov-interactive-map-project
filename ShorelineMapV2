@@ -13,15 +13,55 @@
    crossorigin=""></script>
 
   <style>
+  	#buttons {
+  		width: 300px;
+  		margin-top: 50px;
+  		margin-left: 20px;
+  		float:left;
+  	}
+
     #map {
     	width: 1080;
     	height: 820;
-    	margin: auto;
-    	margin-top: 50px; 
+    	margin-top: 50px;
+    	margin-left: 50px;
+    	float: left;
+    }
+
+    #legend {
+  		width: 300px;
+  		margin-top: 50px;
+  		float:left;
     }
 
     .leaflet-popup-content-wrapper {
   		background-color: #333333;
+	}
+
+	.toggleButton {
+		background-color: #654321;
+		color: black;
+		text-align: center;
+		font-size: 24;
+		width: 150px;
+		height: 150px;
+		font-weight: bold;
+		border-radius: 12px;
+		transition-duration: 0.4s;
+	}
+
+	.toggleButton:hover {
+		background-color: #B2906F;
+		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	}
+
+	.toggleButton:active {
+		background-color: #D8C0A8;
+	}
+
+	.legendImg {
+		width: 60px;
+		height: 60px;
 	}
 
 	#desc {
@@ -67,9 +107,22 @@
 <body>
 
 	<!--YOUR PATHETIC HTML GOES HERE-->
-  <div id="map"></div>
-  <button onclick="toggleMarkers('stash')">Toogle Stashes</button>
-  <button onclick="toggleMarkers('boss')">Toogle Bosses</button>
+
+  	<div id="map"></div>
+  	<div id="buttons">
+  		<button class="toggleButton" onclick="toggleMarkers('stash')">Toggle Stashes</button>
+  		<button class="toggleButton" onclick="toggleMarkers('boss')">Toggle Bosses</button>
+  	</div>
+
+  	<div id="legend">
+  		<h2>Legend:</h2>
+  		<ul style="list-style-type:none;">
+  			<li><img class="legendImg" src="sanitarIcon.png"><h3>Sanitar spawn</h3></li>
+  			<li><img class="legendImg" src="StashPlasticOutline.png"><h3>Plastic ground cache</h3></li>
+  			<li><img class="legendImg" src="StashWooden.png"><h3>Wooden ground cache</h3></li>
+  		</ul>
+  	</div>
+
 
   <script>
   downloadUrl('http://localhost:8080/ProjektRWA/markers.php', function(data) {
