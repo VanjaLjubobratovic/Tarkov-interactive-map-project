@@ -244,7 +244,7 @@
   			<li><img class="legendImg" src="StashWooden.png"><h3>Wooden ground cache</h3></li>
   		</ul>
   	</div>
-	</div>
+   </div>
 
   <script>
   downloadUrl('http://localhost:8080/ProjektRWA/markers.php', function(data) {
