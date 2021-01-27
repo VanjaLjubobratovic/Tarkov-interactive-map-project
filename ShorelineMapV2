@@ -3,6 +3,7 @@
 <head>
   <title>A Leaflet map!</title>
   <meta charset="UTF-8">
+
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
@@ -18,6 +19,15 @@
     	margin: auto;
     	margin-top: 50px; 
     }
+
+    .leaflet-popup-content-wrapper {
+  		background-color: #333333;
+	}
+
+	#desc {
+		color: #ffffff;
+		font-weight: bold;
+	}
 
   </style>
 
@@ -86,7 +96,7 @@
   			maxWidth: 400,
   		})
   			.setLatLng([0,0])
-  			.setContent('<center><img src = "ShorelineLocations/' + id + '.png" height = "250px" width = "350px" alt = "STASH ' + id + '"/><br><b><h2>' + description + '</h2></b></center>');
+  			.setContent('<center><img src = "ShorelineLocations/' + id + '.png" height = "250px" width = "350px" alt = "' + type + id + '"/><br><h2 id="desc">' + description + '</h2></center>');
 
   		marker.bindPopup(popup);
   		L.DomUtil.addClass(marker._icon, type);
@@ -131,7 +141,6 @@
 	}
 
 	map.on('click', onMapClick);
-	//marker.on('click', markerClick)
   </script>
 </body>
 </html>
