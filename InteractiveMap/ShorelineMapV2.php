@@ -161,7 +161,7 @@
   });
 
   // initialize the map
-  var map = L.map('map').setView([5, 5], 2);
+  var map = L.map('map', {zoomControl: false}).setView([5, 5], 2);
 
   var southWest = map.unproject([1080, 0], map.getMaxZoom());
   var northEast = map.unproject([0, 820], map.getMaxZoom());
