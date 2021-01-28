@@ -94,51 +94,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; background-color:black; color: white;
-		background-image: url("pozadina2.jpg");}
-        .wrapper{ width: 350px; padding: 20px; position: relative; top: 80px;}
-		.topnav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  overflow: hidden;
-  background-color: #333;
+    <link rel="stylesheet" href="Stylesheets/topnavStyle.css">
+    <link rel="stylesheet" href="Stylesheets/registerStyle.css">
 
-}
-
-.topnav a{
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 38px 44px;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #ddd;
-  color: black;
-}
-.topnav-center {
-	float:none;
-	position: absolute;
-	top: 50%;
-	left: 47%;
-	transform: translate(-50%, -50%);
-}
-.logo a{
-  padding: 10px 0px;
-}
-.logo a:hover{
-  background-color: #333;
-}
-    </style>
 </head>
 <body>
 	<div class="topnav">
@@ -176,7 +134,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <input type="submit" style ="background-color:darkorange; border-style:none;" class="btn btn-primary" value="Login">
             </div>
-            <p style ="font-size:11pt">Don't have an account? <a href="ProjektRWA/register.php" style ="color:orange">Sign up now</a>.</p>
+            <p style ="font-size:11pt">Don't have an account? <a href="register.php" style ="color:orange">Sign up now</a>.</p>
         </form>
     </div>    
 </body>
