@@ -249,7 +249,7 @@
   	<div id="buttons">
   		<button class="toggleButton" onclick="toggleMarkers('stash')">Toggle Stashes</button>
   		<button class="toggleButton" onclick="toggleMarkers('boss')">Toggle Bosses</button>
-  		<button class="toggleButton" onclick="toggleMarkers('scav')">Toggle Scav Spawns</button>
+  		<button class="toggleButton" onclick="toggleMarkers('extract')">Toggle Extraction Points</button>
   		<button class="toggleButton" onclick="toggleMarkers('key')">Toggle Key Spawns</button>
   	</div>
 
@@ -257,7 +257,7 @@
   		<center><h1>Legend:</h1>
   			<br>
   			<img class="legendImg" src="sanitarIcon.png">
-  			<h3>Sanitar spawn</h3>
+  			<h3>Sanitar boss spawn</h3>
 
   			<br><hr><br>
   			<img class="legendImg" src="StashPlasticOutline.png">
@@ -267,7 +267,12 @@
   			<br><hr><br>
   			<img class="legendImg" src="redCard.png">
   			<h3>Valuable Key Spawns</h3>
+
   			<br><hr><br>
+  			<img class="legendImg" src="extractPmc.png">
+  			<img class="legendImg" src="extractScav.png">
+  			<img class="legendImg" src="extractAll.png">
+  			<h3>Extraction Points PMC, SCAV, ALL</h3>
   		</center>
   	</div>
 	</div>
@@ -286,7 +291,7 @@
 
   		var stashIcon = L.icon({
   			iconUrl: icon,
-  			iconSize: [35, 35],
+  			iconSize: [40, 40],
   		});
 
   		var marker = L.marker([x_coord, y_coord], {icon: stashIcon});
