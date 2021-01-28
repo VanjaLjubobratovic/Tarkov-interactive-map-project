@@ -8,178 +8,25 @@
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
 
+   <link rel="stylesheet" href="mapStyle.css">
+
    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
 	
-   <?php
-   $value = "Logout";
-   session_start();
+<?php
+  $value = "Logout";
+  session_start();
  
-   if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-   $value = "Register";
+  if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+      $value = "Register";
    $link = "http://localhost:8012/ProjektRWA/register.php";
    }
    else{
    $value = "Logout";
    $link = "http://localhost:8012/ProjektRWA/logout.php";
    }
-   ?>
-
-  <style>
-  	#buttons {
-  		width: 300px;
-  		margin-top: 50px;
-  		margin-left: 20px;
-  		float:left;
-		z-index:1;
-  	}
-
-    #map {
-    	width: 1080;
-    	height: 820;
-    	margin-top: 50px;
-    	margin-left: 50px;
-    	float: left;
-    	background: black;
-    	border-radius: 12px;
-    }
-
-    #legend {
-  		width: 300px;
-  		margin-top: 50px;
-  		background: black;
-  		border-radius: 12px;
-  		padding-right: 20px;
-  		padding-left: 20px;
-  		color: white;
-  		float:left;
-    }
-
-    .leaflet-popup-content-wrapper {
-  		background-color: black;
-	}
-
-	.toggleButton {
-		background-color: #654321;
-		color: black;
-		text-align: center;
-		font-size: 24;
-		width: 150px;
-		height: 150px;
-		font-weight: bold;
-		border-radius: 12px;
-		transition-duration: 0.4s;
-		margin-bottom: 10px;
-		border: none;
-	}
-
-	.toggleButton:hover {
-		background-color: #B2906F;
-		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-	}
-
-	.toggleButton:focus {
-		outline: none;
-	}
-
-	.legendImg {
-		width: 60px;
-		height: 60px;
-	}
-
-	#desc {
-		color: #ffffff;
-		font-weight: bold;
-	}
-
-	body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color:black;
-    background-image: url("high_rez_back.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    }
-
-    .topnav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height:99px;
-    overflow: hidden;
-    background-color: #333;
-    z-index:3;
-    }
-
-    .topnav a{
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 38px 44px;
-    text-decoration: none;
-    font-size: 20px;
-    }
-
-    .topnav a:hover {
-    background-color: #ddd;
-	color: black;
-	}
-
-	.topnav a.active {
-	background-color: #ddd;
-	color: black;
-	}
-	.topnav-center {
-	float:none;
-	position: absolute;
-	top: 50%;
-	left: 47%;
-	transform: translate(-50%, -50%);
-	}
-
-	.topnav-right {
-    float: right;
-	position: relative;
-	right : 20px;
-	top: 14px;
-	}
-
-	.ime{
-	position : relative;
-	right : 30px;
-	top : 2px;
-	color : white;
-	padding : 6px;
-	}
-
-	.button {
-    background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 20px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
-	border-radius: 12px;
-	}
-
-	.logo{
-	}
-
-	.logo a:hover{
-	background-color:#333;
-	}
-
-	.sve{
-	position:relative;
-	top:60px;
-	}
-
-  </style>
+?>
 
   <script type="text/javascript">
   	function downloadUrl(url, callback) {
