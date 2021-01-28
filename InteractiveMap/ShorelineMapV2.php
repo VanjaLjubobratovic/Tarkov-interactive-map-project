@@ -18,11 +18,11 @@
  
    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
    $value = "Register";
-   $link = "http://localhost:8012/register.php";
+   $link = "http://localhost:8012/ProjektRWA/register.php";
    }
    else{
    $value = "Logout";
-   $link = "http://localhost:8012/logout.php";
+   $link = "http://localhost:8012/ProjektRWA/logout.php";
    }
    ?>
 
@@ -220,16 +220,16 @@
 	<div class="topnav">
    <!-- Centered link -->
   <div class="topnav-center">
-    <a href="http://localhost:8012/phpnaslovna.php">News</a>
-	<a href="http://localhost:8012/about.php">About</a>
-	<a href="http://localhost:8012/contact.php">Contact</a>
-	<a href="http://localhost:8012/traders.php">Traders</a>
-	<a href="http://localhost:8012/ProjektRWA-main/ShorelineMapV2.php" class="active">Interactive Map</a>
+    <a href="http://localhost:8012/ProjektRWA/phpnaslovna.php">News</a>
+	<a href="http://localhost:8012/ProjektRWA/about.php">About</a>
+	<a href="http://localhost:8012/ProjektRWA/contact.php">Contact</a>
+	<a href="http://localhost:8012/ProjektRWA/traders.php">Traders</a>
+	<a href="http://localhost:8012/ProjektRWA/ProjektRWA-main/ShorelineMapV2.php" class="active">Interactive Map</a>
   </div>
   
   <!-- Left-aligned links (default) -->
   <div class ="logo">
-  <a href= "http://localhost:8012/phpnaslovna.php" ><img  src ="logo3.png" alt = "logo" style = "width:215px;position:fixed; top:10px; left:107.5px;"></a>
+  <a href= "http://localhost:8012/ProjektRWA/phpnaslovna.php" ><img  src ="logo3.png" alt = "logo" style = "width:215px;position:fixed; top:10px; left:107.5px;"></a>
   </div>
   <!-- Right-aligned links -->
   <div class="topnav-right">
@@ -278,7 +278,7 @@
 	</div>
 
   <script>
-  downloadUrl('http://localhost:8080/ProjektRWA/markers.php', function(data) {
+  downloadUrl('http://localhost:8012/ProjektRWA/InteractiveMap/markers.php', function(data) {
   	var xml = data.responseXML;
   	var markers = xml.documentElement.getElementsByTagName('marker');
   	Array.prototype.forEach.call(markers, function(markerElem) {

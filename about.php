@@ -8,11 +8,11 @@ session_start();
  
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	$value = "Register";
-	$link = "http://localhost:8012/register.php";
+	$link = "http://localhost:8012/ProjektRWA/register.php";
    }
    else{
    $value = "Logout";
-   $link = "http://localhost:8012/logout.php";
+   $link = "http://localhost:8012/ProjektRWA/logout.php";
    }
 ?>
 
@@ -120,16 +120,16 @@ body {
 
   <!-- Centered link -->
   <div class="topnav-center">
-    <a href="http://localhost:8012/phpnaslovna.php">News</a>
-	<a href="http://localhost:8012/about.php" class="active">About</a>
-	<a href="http://localhost:8012/contact.php">Contact</a>
-	<a href="http://localhost:8012/traders.php">Traders</a>
-	<a href="http://localhost:8012/InteractiveMap/ShorelineMapV2.php">Interactive Map</a>
+    <a href="http://localhost:8012/ProjektRWA/phpnaslovna.php">News</a>
+	<a href="http://localhost:8012/ProjektRWA/about.php" class="active">About</a>
+	<a href="http://localhost:8012/ProjektRWA/contact.php">Contact</a>
+	<a href="http://localhost:8012/ProjektRWA/traders.php">Traders</a>
+	<a href="http://localhost:8012/ProjektRWA/InteractiveMap/ShorelineMapV2.php">Interactive Map</a>
   </div>
   
   <div class = "logo">
   <!-- Left-aligned links (default) -->
-  <a href="http://localhost:8012/phpnaslovna.php" ><img src ="logo3.png" alt = "logo" style = "width:50%; height:50%;"></a>
+  <a href="http://localhost:8012/ProjektRWA/phpnaslovna.php" ><img src ="logo3.png" alt = "logo" style = "width:50%; height:50%;"></a>
   </div>
   <!-- Right-aligned links -->
   <div class="topnav-right">
