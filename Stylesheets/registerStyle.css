@@ -1,0 +1,13 @@
+body { 
+	font: 14px sans-serif; 
+	background-color:black; 
+	color: white;
+	background-image: url("pozadina2.jpg");
+}
+
+.wrapper { 
+	width: 350px; 
+	padding: 20px; 
+	position: relative; 
+	top: 80px;
+}

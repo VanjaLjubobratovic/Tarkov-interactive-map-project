@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:black;
+  background-image: url("high_rez_back.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.vertical-menu {
+position: relative;
+top: 120px;
+left: 300px;
+width:140px;
+float:left;
+}
+.vertical-menu .trenutni{
+	border : 3px solid gray;
+	padding: 0px;
+}
+
+.vertical-menu img{
+	padding:3px;
+	
+}
+.vertical-menu a:hover {
+}
+
+.level {
+  border: none;
+  padding: 49px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  font-family : Arial;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: #654321;
+  color: black;
+  border-radius : 10px;
+}
+.level:hover {background-color: #B2906F;}
+
+.lvl_active{background-color:  #D8C0A8 } 
+
+.inventory{
+	position: relative;
+	float:left;
+	left: 350px;
+	top: 130px;
+}
