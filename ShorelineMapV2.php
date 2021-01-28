@@ -1,7 +1,7 @@
 
 <html>
 <head>
-  <title>A Leaflet map!</title>
+  <title>Shoreline interactive map</title>
   <meta charset="UTF-8">
 
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -25,6 +25,7 @@
    $link = "http://localhost:8012/logout.php";
    }
    ?>
+
   <style>
   	#buttons {
   		width: 300px;
@@ -40,16 +41,23 @@
     	margin-top: 50px;
     	margin-left: 50px;
     	float: left;
+    	background: black;
+    	border-radius: 12px;
     }
 
     #legend {
   		width: 300px;
   		margin-top: 50px;
+  		background: black;
+  		border-radius: 12px;
+  		padding-right: 20px;
+  		padding-left: 20px;
+  		color: white;
   		float:left;
     }
 
     .leaflet-popup-content-wrapper {
-  		background-color: #333333;
+  		background-color: black;
 	}
 
 	.toggleButton {
@@ -62,6 +70,8 @@
 		font-weight: bold;
 		border-radius: 12px;
 		transition-duration: 0.4s;
+		margin-bottom: 10px;
+		border: none;
 	}
 
 	.toggleButton:hover {
@@ -69,8 +79,8 @@
 		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 	}
 
-	.toggleButton:active {
-		background-color: #D8C0A8;
+	.toggleButton:focus {
+		outline: none;
 	}
 
 	.legendImg {
@@ -82,6 +92,7 @@
 		color: #ffffff;
 		font-weight: bold;
 	}
+
 	body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -155,15 +166,19 @@
 	cursor: pointer;
 	border-radius: 12px;
 	}
+
 	.logo{
-	}	
+	}
+
 	.logo a:hover{
 	background-color:#333;
 	}
+
 	.sve{
 	position:relative;
 	top:60px;
 	}
+
   </style>
 
   <script type="text/javascript">
@@ -234,17 +249,33 @@
   	<div id="buttons">
   		<button class="toggleButton" onclick="toggleMarkers('stash')">Toggle Stashes</button>
   		<button class="toggleButton" onclick="toggleMarkers('boss')">Toggle Bosses</button>
+  		<button class="toggleButton" onclick="toggleMarkers('extract')">Toggle Extraction Points</button>
+  		<button class="toggleButton" onclick="toggleMarkers('key')">Toggle Key Spawns</button>
   	</div>
 
   	<div id="legend">
-  		<h2>Legend:</h2>
-  		<ul style="list-style-type:none;">
-  			<li><img class="legendImg" src="sanitarIcon.png"><h3>Sanitar spawn</h3></li>
-  			<li><img class="legendImg" src="StashPlasticOutline.png"><h3>Plastic ground cache</h3></li>
-  			<li><img class="legendImg" src="StashWooden.png"><h3>Wooden ground cache</h3></li>
-  		</ul>
+  		<center><h1>Legend:</h1>
+  			<br>
+  			<img class="legendImg" src="sanitarIcon.png">
+  			<h3>Sanitar boss spawn</h3>
+
+  			<br><hr><br>
+  			<img class="legendImg" src="StashPlasticOutline.png">
+  			<img class="legendImg" src="StashWooden.png">
+  			<h3>Ground cache</h3>
+
+  			<br><hr><br>
+  			<img class="legendImg" src="redCard.png">
+  			<h3>Valuable Key Spawns</h3>
+
+  			<br><hr><br>
+  			<img class="legendImg" src="extractPmc.png">
+  			<img class="legendImg" src="extractScav.png">
+  			<img class="legendImg" src="extractAll.png">
+  			<h3>Extraction Points PMC, SCAV, ALL</h3>
+  		</center>
   	</div>
-   </div>
+	</div>
 
   <script>
   downloadUrl('http://localhost:8080/ProjektRWA/markers.php', function(data) {
@@ -260,7 +291,7 @@
 
   		var stashIcon = L.icon({
   			iconUrl: icon,
-  			iconSize: [35, 35],
+  			iconSize: [40, 40],
   		});
 
   		var marker = L.marker([x_coord, y_coord], {icon: stashIcon});
@@ -292,7 +323,7 @@
   // load a tile layer
   L.tileLayer('Tiles\\map_{x}_{y}.jpg',
     {
-      attribution: 'Map data &copy; ???',
+      attribution: 'Tarkov Interactive Map',
       maxZoom: 2,
       minZoom: 2,
       crs: L.CRS.Simple,
