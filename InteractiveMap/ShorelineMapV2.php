@@ -169,26 +169,32 @@
   });
 
   // initialize the map
-  var map = L.map('map', {zoomControl: false}).setView([5, 5], 2);
+  var map = L.map('map', {zoomControl: false}).setView([57.5, 10], 2);
 
-  var southWest = map.unproject([1080, 0], map.getMaxZoom());
-  var northEast = map.unproject([0, 820], map.getMaxZoom());
+  /*var southWest = map.unproject([1080, 0], map.getMaxZoom());
+  var northEast = map.unproject([0, 720], map.getMaxZoom());*/
 
   // load a tile layer
-  L.tileLayer('Tiles\\map_{x}_{y}.jpg',
+  L.tileLayer('Tiles\\{x}_{y}_{z}.jpg',
   {
     attribution: 'Tarkov Interactive Map',
-    maxZoom: 2,
+    maxZoom: 3,
     minZoom: 2,
     crs: L.CRS.Simple,
     tileSize: L.point(360, 360)
   }).addTo(map);
 
-  var northEast = map.unproject([1080, 0], map.getMaxZoom());
-  var southWest = map.unproject([0, 720], map.getMaxZoom());
-  map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
+  /*var northEast = map.unproject([1080, 0], map.getMaxZoom());
+  var southWest = map.unproject([0, 720], map.getMaxZoom());*/
+
+  /*var northEast = point(85, 199);
+  var southWest = point(-59, -180);
+  map.setMaxBounds(new L.LatLngBounds(southWest, northEast));*/
+
+  map.setMaxBounds(map.getBounds());
 
   map.on('click', onMapClick);
+
 
  </script>
 </body>
