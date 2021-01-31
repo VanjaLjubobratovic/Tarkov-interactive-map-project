@@ -4,6 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="Stylesheets/naslovnaStyle.css">
 <link rel="stylesheet" href="Stylesheets/topnavStyle.css">
+
+
 <?php
 $value = "Logout";
 session_start();
@@ -24,7 +26,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <!-- Top navigation -->
 <div class="topnav">
-
   <!-- Centered link -->
   <div class="topnav-center">
     <a href="http://localhost:8012/ProjektRWA/phpnaslovna.php" class="active">News</a>

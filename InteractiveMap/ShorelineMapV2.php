@@ -55,6 +55,14 @@
   			}
   		}
   	}
+
+    function onMapClick(e) {
+      var popup = L.popup();
+      popup
+        .setLatLng(e.latlng)
+        .setContent(e.latlng.toString())
+        .openOn(map);
+    }
   </script>
 
 </head>
@@ -179,6 +187,8 @@
   var northEast = map.unproject([1080, 0], map.getMaxZoom());
   var southWest = map.unproject([0, 720], map.getMaxZoom());
   map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
+
+  map.on('click', onMapClick);
 
  </script>
 </body>
